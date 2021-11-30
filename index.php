@@ -7,8 +7,6 @@ require_once "Viajantes.php";
 
 $participantesDaViagem = new Viajantes(["Icaro","Rafa","Maria","Tiao"]);
 
-var_dump($participantesDaViagem);
-
 $i = 0;
 $numeroDeViajantes = count($participantesDaViagem->viajantes);
 
@@ -18,7 +16,6 @@ while ($i < $numeroDeViajantes) {
     echo "-" . $participantesDaViagem->viajantes[$i] . PHP_EOL;
     $i++;
 }
-
 echo PHP_EOL;
  
             // Finalização da inclusão dos participantes da Viagem
@@ -26,6 +23,3 @@ echo PHP_EOL;
             // Início da Inclusão de novas compras
 
 $compra1 = new Compra("Pizzaria",10,["Icaro","Rafa"]);
-
-
-var_dump($compra1);
