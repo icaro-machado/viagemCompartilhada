@@ -1,6 +1,6 @@
 <?php
 
-include_once 'Viajantes.php';
+require 'Viajantes.php';
 
 class Compra
 {
@@ -19,14 +19,20 @@ class Compra
             return false;
         }
 
-        foreach ($participantesDaCompra as $value) {
-
-            if (in_array($value, $viajantes)) {
-                return true;
-            } else {
-                echo "Os participantes informados não estão listados na Viagem!";
-                return false;
-            }
+        if ($participantesDaCompra == null) {
+            return false;
         }
     }
+
+
+        /*
+
+        if (in_array($participantesDaCompra, $viajantes)) {
+            return true;
+        } else {
+            echo "Os participantes informados não estão listados na Viagem!";
+            return false;
+        }
+
+        */
 }
