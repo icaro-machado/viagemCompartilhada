@@ -1,6 +1,6 @@
 ﻿# Viagem Compartilhada
 
-Primeiro projeto para divisão de custos de uma viagem:
+Projeto para divisão de custos de uma viagem:
 - A viagem deverá possuir 2 ou mais participantes
 - Cada compra realizada poderá ser efetuada por pelo menos 1 dos participantes da viagem
 
