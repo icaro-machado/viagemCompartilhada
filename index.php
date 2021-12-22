@@ -22,16 +22,17 @@ echo PHP_EOL;
 
             // Início da Inclusão de novas compras
 
-$compra1 = new Compra("Pizzaria",10,["Icaro", "Rafa"]);
+$compra = new Compra("Pizzaria",10,["Icaro", "Rafa"],"Icaro");
 
-$numeroDeParticipantes = count($compra1->participantesDaCompra);
-$comparacaoNumeroDeParticipantesComViajantes = count(array_intersect($compra1->participantesDaCompra, $participantesDaViagem->viajantes));
+$numeroDeParticipantes = count($compra->participantesDaCompra);
+$comparacaoNumeroDeParticipantesComViajantes = count(array_intersect($compra->participantesDaCompra, $participantesDaViagem->viajantes));
 
-if ($numeroDeParticipantes == $comparacaoNumeroDeParticipantesComViajantes && $numeroDeParticipantes != 0):
-    $valorParaCada = $compra1->valor/$numeroDeParticipantes;
+if ($numeroDeParticipantes == $comparacaoNumeroDeParticipantesComViajantes && $numeroDeParticipantes != 0) {
+    $valorParaCada = $compra->valor / $numeroDeParticipantes;
     echo "Todos os participantes dessa compra estão na viagem!" . PHP_EOL;
     echo "O valor para cada participante dessa compra será de R$" . $valorParaCada . PHP_EOL;
-else:
+}
+else {
     echo "Os participantes dessa compra não estão na viagem!" . PHP_EOL;
     echo "Essa compra não é válida!" . PHP_EOL;
-endif;
+}
