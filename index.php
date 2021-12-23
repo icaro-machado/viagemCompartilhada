@@ -1,38 +1,50 @@
 <?php
 
 require_once "Compra.php";
-require_once "Viajantes.php";
+require_once "Viajante.php";
 
             // Início da inclusão dos participantes da Viagem
 
-$participantesDaViagem = new Viajantes(["Icaro","Rafa","Maria","Tiao"]);
+$participantesDaViagem = [
+    new Viajante("Icaro"),
+    new Viajante("Rafa"),
+    new Viajante("Maria"),
+    new Viajante("Tião")
+];
 
 $i = 0;
-$numeroDeViajantes = count($participantesDaViagem->viajantes);
+$numeroDeViajantes = count($participantesDaViagem);
 
 echo "Os participantes dessa viagem são:" . PHP_EOL;
 
 while ($i < $numeroDeViajantes) {
-    echo "-" . $participantesDaViagem->viajantes[$i] . PHP_EOL;
+    echo "- " . $participantesDaViagem[$i]->viajante . PHP_EOL;
     $i++;
 }
+
 echo PHP_EOL;
- 
+
             // Finalização da inclusão dos participantes da Viagem
 
             // Início da Inclusão de novas compras
 
-$compra = new Compra("Pizzaria",10,["Icaro", "Rafa"],"Icaro");
+$primeiraCompra = new Compra(
+    "Pizzaria",
+    60,
+    [$participantesDaViagem[0]->viajante, $participantesDaViagem[1]->viajante],
+    [$participantesDaViagem[0]->viajante]
+);
 
-$numeroDeParticipantes = count($compra->participantesDaCompra);
-$comparacaoNumeroDeParticipantesComViajantes = count(array_intersect($compra->participantesDaCompra, $participantesDaViagem->viajantes));
+$segundaCompra = new Compra(
+    "Shopping",
+    350,
+    [$participantesDaViagem[0]->viajante, $participantesDaViagem[1]->viajante, $participantesDaViagem[2]->viajante],
+    [$participantesDaViagem[2]->viajante]
+);
 
-if ($numeroDeParticipantes == $comparacaoNumeroDeParticipantesComViajantes && $numeroDeParticipantes != 0) {
-    $valorParaCada = $compra->valor / $numeroDeParticipantes;
-    echo "Todos os participantes dessa compra estão na viagem!" . PHP_EOL;
-    echo "O valor para cada participante dessa compra será de R$" . $valorParaCada . PHP_EOL;
-}
-else {
-    echo "Os participantes dessa compra não estão na viagem!" . PHP_EOL;
-    echo "Essa compra não é válida!" . PHP_EOL;
-}
+$terceiraCompra = new Compra(
+    "Passeio do roteiro",
+    450,
+    [$participantesDaViagem[0]->viajante, $participantesDaViagem[1]->viajante, $participantesDaViagem[3]->viajante],
+    [$participantesDaViagem[0]->viajante]
+);

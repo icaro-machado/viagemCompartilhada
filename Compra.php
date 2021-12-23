@@ -1,6 +1,6 @@
 <?php
 
-require 'Viajantes.php';
+require 'Viajante.php';
 
 class Compra
 {
@@ -9,7 +9,7 @@ class Compra
     public $participantesDaCompra;
     public $pagador;
 
-    public function __construct(string $nomeDaCompra, float $valor, array $participantesDaCompra, string $pagador)
+    public function __construct(string $nomeDaCompra, float $valor, array $participantesDaCompra, array $pagador)
     {
         $this->nomeDaCompra = $nomeDaCompra;
         $this->valor = $valor;
@@ -25,9 +25,8 @@ class Compra
             return false;
         }
 
-        if (array_key_exists($pagador, $participantesDaCompra) == false) {
-            echo "O pagador da compra $nomeDaCompra não é válido, favor informar um pagador correto!" . PHP_EOL;
-            exit();
+        if (count(array_intersect($pagador, $participantesDaCompra)) == 0) {
+            return false;
         }
     }
 }
