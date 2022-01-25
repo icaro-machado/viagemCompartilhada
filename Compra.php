@@ -16,11 +16,7 @@ class Compra extends Viajante
         $this->valor = $valor;
         $this->participantesDaCompra = $participantesDaCompra;
         $this->pagador = $pagador;
-/*
-        if (count(array_intersect(Viajante->$viajante, $participantesDaCompra)) == null) {
-            return false;
-        }
-*/
+
         if ($valor < 0) {
             echo "Essa compra não é válida. O valor precisa ser positivo!";
             return false;
